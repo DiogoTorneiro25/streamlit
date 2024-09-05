@@ -10,5 +10,6 @@ O gráfico abaixo representa a evolução do preço das ações do Itaú (ITUB4)
 
 # criar a interface do streamlit
 st.write("""
-# Fim do App
+# Fim do App ATUALIZAÇÃO sjjd
+    ddd
 """) # markdown
