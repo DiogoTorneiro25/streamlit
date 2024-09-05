@@ -1,17 +1,24 @@
-import streamlit as st
-import pandas as pd
+# import libraries
 import yfinance as yf
+import pandas as pd
+import streamlit as st
 
-# criar a interface do streamlit
+
+# create a function to load data
 @st.cache_data
-def load_data(company):
-    dados_acao = yf.Ticker(company)
+def load_data(companies):
+    tickers_text = " ".join(companies)
+    dados_acao = yf.Ticker(tickers_text)
     cotacoes_acao = dados_acao.history(period="1d", start="2010-01-01", end="2024-07-01")
+    print(cotacoes_acao)
     cotacoes_acao = cotacoes_acao[["Close"]]
     return cotacoes_acao
 
-dados = load_data("ITUB4.SA")
-print(dados)
+stocks = ["ITUB4.SA", "PETR4.SA", "MGLU3.SA", "VALE3.SA", "ABEV3.SA", "GGBR4.SA"]
+
+# prepare visualizations
+data = load_data(stocks)
+print(data)
 
 st.write("""
 # Stock Prices
