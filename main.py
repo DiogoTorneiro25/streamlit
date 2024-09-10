@@ -121,3 +121,12 @@ This was the performance of each stock during the selected period
 
 {wallet_performance_text}
     """)
+
+# create expansible text box
+with st.expander("Should we have invested?"):
+     if wallet_performance > 0:
+          st.write('''Yes, this investment would have brough us profit ''')
+     elif wallet_performance < 0:
+          st.write('''No, this investment would have brough us losses''')
+     else:
+          st.write('''It is indifferent, neither we would profits or losses''')
